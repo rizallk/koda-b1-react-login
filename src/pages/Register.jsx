@@ -1,0 +1,118 @@
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Link } from 'react-router';
+import { registerValidation } from '../utils/registerValidation';
+
+export default function Register() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValue: {
+      fullname: '',
+      email: '',
+      username: '',
+      password: '',
+    },
+    resolver: yupResolver(registerValidation),
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+    alert('Berhasil register!');
+  };
+
+  return (
+    <div className="m-5 p-4 border border-black rounded-3xl flex justify-center items-center flex-col">
+      <h1 className="text-3xl font-bold text-center mb-4">Register</h1>
+
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="grid sm:grid-cols-2 gap-5">
+          <div className="flex flex-col mb-3">
+            <label htmlFor="fullname" className="mb-3">
+              Fullname
+            </label>
+            <input
+              id="fullname"
+              type="text"
+              className="border border-black rounded-md py-3 px-4"
+              placeholder="Masukkan Nama Lengkap"
+              {...register('fullname')}
+            />
+            {errors.fullname?.message && (
+              <p role="alert" className="mt-1 text-sm text-red-600">
+                {errors.fullname.message}
+              </p>
+            )}
+          </div>
+          <div className="flex flex-col mb-3">
+            <label htmlFor="email" className="mb-3">
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              className="border border-black rounded-md py-3 px-4"
+              placeholder="Masukkan Email"
+              {...register('email')}
+            />
+            {errors.email?.message && (
+              <p role="alert" className="mt-1 text-sm text-red-600">
+                {errors.email.message}
+              </p>
+            )}
+          </div>
+          <div className="flex flex-col mb-3">
+            <label htmlFor="username" className="mb-3">
+              Username
+            </label>
+            <input
+              id="username"
+              type="text"
+              className="border border-black rounded-md py-3 px-4"
+              placeholder="Masukkan Username"
+              {...register('username')}
+            />
+            {errors.username?.message && (
+              <p role="alert" className="mt-1 text-sm text-red-600">
+                {errors.username.message}
+              </p>
+            )}
+          </div>
+          <div className="flex flex-col mb-3">
+            <label htmlFor="password" className="mb-3">
+              Password
+            </label>
+            <input
+              id="password"
+              type="password"
+              className="border border-black rounded-md py-3 px-4"
+              placeholder="Masukkan Password"
+              {...register('password')}
+            />
+            {errors.password?.message && (
+              <p role="alert" className="mt-1 text-sm text-red-600">
+                {errors.password.message}
+              </p>
+            )}
+          </div>
+        </div>
+        <p className="text-sm text-gray-700 mt-4 text-center">
+          Sudah punya akun?{' '}
+          <Link to="/" className="underline hover:text-blue-600">
+            Masuk disini!
+          </Link>
+        </p>
+        <div className="flex justify-center">
+          <button
+            type="submit"
+            className="bg-black mt-4 text-white py-3 px-4 rounded-lg cursor-pointer"
+          >
+            Daftar
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+}
