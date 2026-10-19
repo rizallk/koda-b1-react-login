@@ -2,6 +2,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { loginValidation } from '../utils/loginValidation';
 import { Link } from 'react-router';
+import Card from '../components/Card';
+import Button from '../components/Button';
 
 export default function Login() {
   const {
@@ -25,7 +27,7 @@ export default function Login() {
   };
 
   return (
-    <div className="card">
+    <Card>
       <h1 className="text-3xl font-bold text-center mb-4">Login</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col mb-5">
@@ -69,11 +71,9 @@ export default function Login() {
           </Link>
         </p>
         <div className="flex justify-center">
-          <button type="submit" className="btn">
-            Masuk
-          </button>
+          <Button type="submit">Masuk</Button>
         </div>
       </form>
-    </div>
+    </Card>
   );
 }

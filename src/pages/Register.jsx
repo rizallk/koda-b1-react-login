@@ -2,6 +2,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Link } from 'react-router';
 import { registerValidation } from '../utils/registerValidation';
+import Card from '../components/Card';
+import Button from '../components/Button';
 
 export default function Register() {
   const {
@@ -24,7 +26,7 @@ export default function Register() {
   };
 
   return (
-    <div className="card">
+    <Card>
       <h1 className="text-3xl font-bold text-center mb-4">Register</h1>
 
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -105,11 +107,9 @@ export default function Register() {
           </Link>
         </p>
         <div className="flex justify-center">
-          <button type="submit" className="btn">
-            Daftar
-          </button>
+          <Button type="submit">Daftar</Button>
         </div>
       </form>
-    </div>
+    </Card>
   );
 }
