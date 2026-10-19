@@ -1,1 +1,17 @@
 @import 'tailwindcss';
+
+@theme {
+  --color-primary: #971386;
+}
+
+.card {
+  @apply m-5 p-4 border border-primary rounded-3xl flex justify-center items-center flex-col;
+}
+
+.form-input {
+  @apply border border-primary rounded-md py-3 px-4;
+}
+
+.btn {
+  @apply bg-primary mt-4 text-white py-3 px-4 rounded-lg cursor-pointer;
+}

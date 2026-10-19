@@ -25,7 +25,7 @@ export default function Login() {
   };
 
   return (
-    <div className="m-5 p-4 border border-black rounded-3xl flex justify-center items-center flex-col">
+    <div className="card">
       <h1 className="text-3xl font-bold text-center mb-4">Login</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col mb-5">
@@ -35,7 +35,7 @@ export default function Login() {
           <input
             id="username"
             type="text"
-            className="border border-black rounded-md py-3 px-4"
+            className="form-input"
             placeholder="Masukkan Username"
             {...register('username')}
           />
@@ -52,7 +52,7 @@ export default function Login() {
           <input
             id="password"
             type="password"
-            className="border border-black rounded-md py-3 px-4"
+            className="form-input"
             placeholder="Masukkan Password"
             {...register('password')}
           />
@@ -69,10 +69,7 @@ export default function Login() {
           </Link>
         </p>
         <div className="flex justify-center">
-          <button
-            type="submit"
-            className="bg-black mt-4 text-white py-3 px-4 rounded-lg cursor-pointer"
-          >
+          <button type="submit" className="btn">
             Masuk
           </button>
         </div>
